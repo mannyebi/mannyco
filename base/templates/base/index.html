@@ -1,0 +1,313 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مانیکو تیم | راه حل های خلاقانه دیجیتال</title>
+    <link rel="stylesheet" href="{% static 'base/css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="{% static 'base/fonts/fonts.css' %}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-text">مانیکۆ</span>
+                <div class="logo-dot"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">خانه</a></li>
+                <li><a href="#services" class="nav-link">خدمات</a></li>
+                <li><a href="#projects" class="nav-link">پروژه‌ها</a></li>
+                <li><a href="#about" class="nav-link">درباره ما</a></li>
+                <li><a href="#contact" class="nav-link">تماس</a></li>
+            </ul>
+            <div class="menu-btn">
+                <div class="menu-btn__burger"></div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-grid"></div>
+            <div class="hero-glow"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i>
+                    <span>به دنیای دیجیتال خوش آمدید</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="line highlight">مانیکۆ تیم</span>
+                    <span class="line">راه‌حل‌های خلاقانه دیجیتال</span>
+                </h1>
+                <p class="hero-description">سرعت خیره‌کننده تکنولوژی، کسب‌وکار بدون وب‌سایت را به ورطه فراموشی می‌کشاند. 
+                    همین امروز با ما به اوج رشد غیرقابل تصور برسید و بازار را در دست بگیرید!</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="cta-button primary">
+                        <span>شروع پروژه</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                    <a href="#why-website" class="cta-button secondary">
+                        <span>چرا به یک وب‌سایت نیاز دارید</span>
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+    </header>
+
+    <section id="why-website" class="why-website">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">اهمیت دیجیتال</span>
+                <h2 class="section-title">چرا داشتن یک وب سایت ضروری است؟</h2>
+                <p class="section-description">در دنیای امروز، حضور آنلاین برای هر کسب‌وکاری ضروری است</p>
+            </div>
+            <div class="why-website-grid">
+                <div class="why-website-card">
+                    <div class="card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>فرصت‌های بی‌نهایت</h3>
+                    <p>در دنیای امروز که تکنولوژی با سرعتی باورنکردنی در حال پیشرفت است، نداشتن یک وب‌سایت، از دست دادن فرصت‌های بی‌شماری برای کسب‌وکار شماست.</p>
+                </div>
+                <div class="why-website-card">
+                    <div class="card-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>صرفه‌جویی در هزینه</h3>
+                    <p>وب‌سایت یک سرمایه‌گذاری هوشمندانه است که هزینه‌های تبلیغات و بازاریابی را کاهش می‌دهد و بازدهی بیشتری نسبت به روش‌های سنتی دارد.</p>
+                </div>
+                <div class="why-website-card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>رشد مستمر</h3>
+                    <p>وب‌سایت به شما امکان می‌دهد تا به صورت مداوم کسب‌وکار خود را رشد دهید و با مشتریان جدید ارتباط برقرار کنید.</p>
+                </div>
+                <div class="why-website-card">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>حضور ۲۴ ساعته</h3>
+                    <p>وب‌سایت شما به صورت ۲۴ ساعته در دسترس مشتریان است و محدودیت زمانی ندارد.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">خدمات ما</span>
+                <h2 class="section-title">چه کاری برای شما انجام می‌دهیم؟</h2>
+                <p class="section-description">با استفاده از تکنولوژی‌های روز دنیا، بهترین راه‌حل‌های دیجیتال را ارائه می‌دهیم</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>توسعه وب</h3>
+                    <p>طراحی و توسعه وب‌سایت‌های مدرن و سریع با استفاده از آخرین تکنولوژی‌ها</p>
+                    <a href="#" class="service-link">
+                        <span>بیشتر بدانید</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>هوش مصنوعی</h3>
+                    <p>توسعه ابزار های هوش مصنوعی برای حل مشکلات و افزایش کارایی مختص به هر کسب و کار</p>
+                    <a href="#" class="service-link">
+                        <span>بیشتر بدانید</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>طراحی رابط کاربری</h3>
+                    <p>طراحی رابط‌های کاربری جذاب و کاربرپسند با تمرکز بر تجربه کاربری</p>
+                    <a href="#" class="service-link">
+                        <span>بیشتر بدانید</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>پشتیبانی</h3>
+                    <p>پشتیبانی و اضافه کردن ویژگی های مدنظر کارفرما به وب اپلیکیشن توسعه داده شده</p>
+                    <a href="#" class="service-link">
+                        <span>بیشتر بدانید</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">پروژه‌های ما</span>
+                <h2 class="section-title">آخرین پروژه‌های ما</h2>
+                <p class="section-description">نمونه کارهای ما نشان‌دهنده کیفیت و تخصص ما در زمینه توسعه نرم‌افزار است</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="{% static 'base/exhan.jpg' %}" alt="Project 1">
+                        <div class="project-overlay">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>صرافی Exhan</h3>
+                        <p>توسعه توسعه وب اپلیکیشن صرافی و تریدینگ exhan توسط تیم مانیکۆ</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="{% static 'base/chatman.png' %}" alt="Project 2">
+                        <div class="project-overlay">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>پلتفرم چت Chatman</h3>
+                        <p> توسعه پلتفرم چت مشابهه تلگرام با قابلیت پرداخت درون برنامه ای توسط تیم مانیکۆ</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="{% static 'base/lotteryto.png' %}" alt="Project 3">
+                        <div class="project-overlay">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>پلتفرم لاتاریتو</h3>
+                        <p>توسعه وبسایت استارتاپ `لاتاریتو` توسط تیم مانیکۆ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">تماس با ما</span>
+                <h2 class="section-title">با ما در ارتباط باشید</h2>
+                <p class="section-description">برای شروع پروژه خود یا دریافت مشاوره رایگان، با ما تماس بگیرید</p>
+            </div>
+            <div class="contact-content">
+                <form class="message-form contact-form">
+                    <div class="input-wrapper">
+                        <input type="text" id="name" required>
+                        <label for="name">نام</label>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" id="phone" required>
+                        <label for="phone">شماره موبایل</label>
+                    </div>
+                    <div class="input-wrapper">
+                        <textarea id="message" required></textarea>
+                        <label for="message">پیام شما</label>
+                    </div>
+                    <button type="submit" class="send-btn">
+                        <span>ارسال پیام</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>آدرس</h3>
+                            <p>بوکان، خیابان ورزش</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>تلفن</h3>
+                            <p>۰۹۹۳۹۹۰۰۴۱۸</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>ایمیل</h3>
+                            <p>mannyebrahimi8287@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-text">مانیکۆ</span>
+                        <div class="logo-dot"></div>
+                    </div>
+                    <p class="footer-description"> مانیکۆ تیم با استفاده از تکنولوژی‌های روز دنیا، بهترین راه‌حل‌های دیجیتال را ارائه می‌دهد</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h4>دسترسی سریع</h4>
+                        <ul>
+                            <li><a href="#home">خانه</a></li>
+                            <li><a href="#services">خدمات</a></li>
+                            <li><a href="#projects">پروژه‌ها</a></li>
+                            <li><a href="#about">درباره ما</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>شبکه‌های اجتماعی</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>تمامی حقوق محفوظ است © ۱۴۰۳</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'base/script.js' %}"></script>
+</body>
+</html> 
