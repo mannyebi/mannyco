@@ -1498,4 +1498,57 @@ html, body {
 .send-btn i {
     position: relative;
     z-index: 1;
+}
+
+/* --- Enhanced Success Message Animation --- */
+.form-message.success {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 24px 4px var(--primary-color), 0 0 60px 8px var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+    animation: popSuccess 0.6s cubic-bezier(0.68,-0.55,0.27,1.55);
+}
+.form-message.success::before {
+    content: '\f058'; /* FontAwesome check-circle */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 1.2em;
+    top: 50%;
+    transform: translateY(-50%) scale(1.4);
+    color: var(--accent-color);
+    text-shadow: 0 0 8px var(--primary-color);
+    animation: iconPop 0.7s cubic-bezier(0.68,-0.55,0.27,1.55);
+}
+@keyframes popSuccess {
+    0% { transform: scale(0.7); opacity: 0; }
+    60% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+@keyframes iconPop {
+    0% { transform: translateY(-50%) scale(0.2); opacity: 0; }
+    60% { transform: translateY(-50%) scale(1.5); opacity: 1; }
+    100% { transform: translateY(-50%) scale(1.4); opacity: 1; }
+}
+/* Confetti burst (optional, for JS) */
+.confetti {
+    position: fixed;
+    left: 50%;
+    top: 40%;
+    pointer-events: none;
+    z-index: 99999;
+    width: 0;
+    height: 0;
+}
+
+/* --- DEBUG: Add outline and ensure overlay is visible --- */
+.success-overlay {
+    z-index: 99999 !important;
+    outline: 4px solid red !important;
+}
+.success-overlay.show {
+    display: flex !important;
+    opacity: 1 !important;
 } 

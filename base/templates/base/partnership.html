@@ -1,0 +1,225 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>همکاری با {{ partnership.brand_fr }}</title>
+    <link rel="stylesheet" href="{% static 'base/css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="{% static 'base/fonts/fonts.css' %}" rel="stylesheet">
+    <style>
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .hero-text-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-greeting {
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+            line-height: 1.6;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.5px;
+            position: relative;
+            padding: 1rem 0;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        .hero-greeting::before,
+        .hero-greeting::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffffff, transparent);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero-greeting::before {
+            top: 0;
+        }
+
+        .hero-greeting::after {
+            bottom: 0;
+        }
+
+        .hero-title {
+            margin: 2.5rem 0;
+        }
+
+        .hero-title .highlight {
+            color: #ffffff;
+            font-size: 3.5rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            line-height: 2;
+            color: #ffffff;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-container {
+            width: 20rem;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 3rem 1rem;
+            }
+            
+            .hero-greeting {
+                font-size: 1.6rem;
+                padding: 0.8rem 0;
+            }
+            
+            .hero-greeting::before,
+            .hero-greeting::after {
+                width: 40px;
+            }
+
+            .hero-title .highlight {
+                font-size: 2.5rem;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+                line-height: 1.8;
+            }
+            
+            .video-container {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-text">مانیکۆ</span>
+                <div class="logo-dot"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">خانه</a></li>
+                <li><a href="index.html#services" class="nav-link">خدمات</a></li>
+                <li><a href="index.html#projects" class="nav-link">پروژه‌ها</a></li>
+                <li><a href="index.html#about" class="nav-link">درباره ما</a></li>
+                <li><a href="index.html#contact" class="nav-link">تماس</a></li>
+            </ul>
+            <div class="menu-btn">
+                <div class="menu-btn__burger"></div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-background">
+            <div class="hero-grid"></div>
+            <div class="hero-glow"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text-content">
+                    <div class="hero-greeting">
+                        {{ partnership.page_title }}
+                    </div>
+                    <p class="hero-description">
+                        با افتخار، تیم مانیکۆ آماده ارائه خدمات دیجیتال به رستوران کلبه است. ما با تجربه‌ای که در زمینه 
+                        دیجیتال مارکتینگ و توسعه نرم‌افزار داریم، می‌توانیم به شما کمک کنیم تا حضور آنلاین قوی‌تری داشته باشید 
+                        و مشتریان بیشتری را جذب کنید.
+                        {{partnership.page_description}}
+                    </p>
+                </div>
+                <div class="video-container">
+                    <video controls>
+                        <source src="{{partnership.file.url}}" type="video/mp4">
+                        مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+                    </video>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+    </header>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-text">مانیکۆ</span>
+                        <div class="logo-dot"></div>
+                    </div>
+                    <p class="footer-description">مانیکۆ تیم با استفاده از تکنولوژی‌های روز دنیا، بهترین راه‌حل‌های دیجیتال را ارائه می‌دهد</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h4>دسترسی سریع</h4>
+                        <ul>
+                            <li><a href="index.html">خانه</a></li>
+                            <li><a href="index.html#services">خدمات</a></li>
+                            <li><a href="index.html#projects">پروژه‌ها</a></li>
+                            <li><a href="index.html#about">درباره ما</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h4>شبکه‌های اجتماعی</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>تمامی حقوق محفوظ است © ۱۴۰۳</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

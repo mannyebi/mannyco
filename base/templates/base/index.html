@@ -8,7 +8,135 @@
     <link rel="stylesheet" href="{% static 'base/css/styles.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="{% static 'base/fonts/fonts.css' %}" rel="stylesheet">
-
+    <style>
+        /* Remove old .form-message CSS, now in styles.css */
+    </style>
+    <style>
+    /* --- Overlay Debug CSS --- */
+    .success-overlay {
+        position: fixed;
+        inset: 0;
+        width: 100vw; height: 100vh;
+        z-index: 99999;
+        background: rgba(20,20,30,0.55);
+        backdrop-filter: blur(18px) saturate(1.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1);
+        opacity: 0;
+        pointer-events: none;
+    }
+    .success-overlay.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .success-modal {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--border-radius);
+        box-shadow: 0 10px 30px rgba(108, 99, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 3rem 2.5rem 2.5rem 2.5rem;
+        min-width: 340px;
+        max-width: 92vw;
+        text-align: center;
+        position: relative;
+        animation: modalPop 0.7s cubic-bezier(0.68,-0.55,0.27,1.55);
+    }
+    @keyframes modalPop {
+        0% { transform: scale(0.7) translateY(60px); opacity: 0; }
+        60% { transform: scale(1.08) translateY(-10px); opacity: 1; }
+        100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .success-icon-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2.2rem;
+    }
+    .success-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        height: 70px;
+        border-radius: var(--border-radius);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 0 0 8px rgba(108,99,255,0.07);
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        position: relative;
+        animation: checkPop 0.8s cubic-bezier(0.68,-0.55,0.27,1.55);
+    }
+    @keyframes checkPop {
+        0% { transform: scale(0.2) rotate(-30deg); opacity: 0; }
+        60% { transform: scale(1.2) rotate(10deg); opacity: 1; }
+        100% { transform: scale(1) rotate(0); opacity: 1; }
+    }
+    .success-title {
+        font-size: 2rem;
+        font-weight: 800;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.5px;
+        animation: fadeInUp 0.7s 0.15s both;
+    }
+    .success-message {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        margin-bottom: 2.2rem;
+        font-weight: 400;
+        animation: fadeInUp 0.7s 0.25s both;
+    }
+    @keyframes fadeInUp {
+        0% { opacity: 0; transform: translateY(40px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    .close-success {
+        background: var(--gradient);
+        color: #fff;
+        border: none;
+        border-radius: 50px;
+        padding: 1.2rem 2.5rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 10px 30px rgba(108, 99, 255, 0.3);
+        transition: var(--transition);
+        animation: fadeInUp 0.7s 0.35s both;
+        outline: none;
+        margin-top: 1rem;
+    }
+    .close-success:hover {
+        background: var(--gradient-hover);
+        box-shadow: 0 15px 40px rgba(108, 99, 255, 0.4);
+    }
+    .success-confetti {
+        pointer-events: none;
+        position: absolute;
+        left: 0; top: 0; width: 100%; height: 100%;
+        z-index: 1;
+        overflow: visible;
+    }
+    .confetti-piece {
+        position: absolute;
+        top: 40%;
+        width: 10px; height: 10px;
+        border-radius: 4px;
+        opacity: 0.7;
+        animation: confetti-fall 1.7s cubic-bezier(0.68,-0.55,0.27,1.55) forwards;
+    }
+    @keyframes confetti-fall {
+        0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+        80% { opacity: 1; }
+        100% { transform: translateY(220px) scale(0.7) rotate(360deg); opacity: 0; }
+    }
+    .hidden { display: none !important; }
+    </style>
 </head>
 <body>
     <div class="cursor"></div>
@@ -220,17 +348,19 @@
                 <p class="section-description">برای شروع پروژه خود یا دریافت مشاوره رایگان، با ما تماس بگیرید</p>
             </div>
             <div class="contact-content">
-                <form class="message-form contact-form">
+                <div id="form-message" class="form-message" style="display:none;"></div>
+                <form class="message-form contact-form" id="message-form" method="POST" action="{% url 'contact' %}">
+                    {% csrf_token %}
                     <div class="input-wrapper">
-                        <input type="text" id="name" required>
+                        <input type="text" id="name" name="name" required>
                         <label for="name">نام</label>
                     </div>
                     <div class="input-wrapper">
-                        <input type="text" id="phone" required>
+                        <input type="text" id="phone_number" name="phone_number" required>
                         <label for="phone">شماره موبایل</label>
                     </div>
                     <div class="input-wrapper">
-                        <textarea id="message" required></textarea>
+                        <textarea id="message" name="message" required></textarea>
                         <label for="message">پیام شما</label>
                     </div>
                     <button type="submit" class="send-btn">
@@ -308,6 +438,76 @@
         </div>
     </footer>
 
+    <div id="success-overlay" class="success-overlay hidden">
+        <div class="success-modal">
+            <div class="success-icon-wrap">
+                <span class="success-icon"><i class="fas fa-check"></i></span>
+            </div>
+            <h2 class="success-title">تبریک!</h2>
+            <p class="success-message">درخواست شما با موفقیت ثبت شد</p>
+            <button class="close-success">بازگشت</button>
+        </div>
+        <div class="success-confetti"></div>
+    </div>
+
     <script src="{% static 'base/script.js' %}"></script>
+    
+    <script>
+        const successOverlay = document.getElementById('success-overlay');
+        function showSuccessOverlay() {
+            successOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                successOverlay.classList.add('show');
+                const cs = window.getComputedStyle(successOverlay);
+            }, 10);
+            launchSuccessConfetti();
+            const closeBtn = document.querySelector('.close-success');
+            if (closeBtn) closeBtn.onclick = hideSuccessOverlay;
+        }
+        function hideSuccessOverlay() {
+            successOverlay.classList.remove('show');
+            setTimeout(() => successOverlay.classList.add('hidden'), 400);
+        }
+
+        const form = document.getElementById('message-form');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(form);
+            try {
+                const response = await fetch('/contact-form', {
+                    method: "POST",
+                    headers: {
+                        'X-CSRFToken': formData.get('csrfmiddlewaretoken'),
+                    },
+                    body: formData
+                });
+                const result = await response.json();
+                if (result.status === 'success') {
+                    form.reset();
+                    showSuccessOverlay();
+                } else {
+                    alert(result.message || 'ارسال پیام با خطا مواجه شد.');
+                }
+            } catch (error) {
+                alert('خطا در ارسال پیام. لطفا دوباره تلاش کنید.');
+            }
+        });
+
+        function launchSuccessConfetti() {
+            const confettiBox = document.querySelector('.success-confetti');
+            confettiBox.innerHTML = '';
+            const colors = [
+                'var(--primary-color)', 'var(--secondary-color)', 'var(--accent-color)', '#fff'
+            ];
+            for (let i = 0; i < 32; i++) {
+                const conf = document.createElement('div');
+                conf.className = 'confetti-piece';
+                conf.style.background = colors[Math.floor(Math.random()*colors.length)];
+                conf.style.left = (50 + Math.random()*40 - 20) + '%';
+                conf.style.animationDelay = (Math.random()*0.5) + 's';
+                confettiBox.appendChild(conf);
+            }
+        }
+    </script>
 </body>
 </html> 

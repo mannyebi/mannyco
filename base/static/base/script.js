@@ -106,64 +106,6 @@ window.addEventListener('scroll', () => {
     document.documentElement.style.setProperty('--scroll-progress', `${scrollProgress}%`);
 });
 
-// Enhanced form submission with animation
-const contactForm = document.querySelector('.contact-form');
-
-contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const submitButton = contactForm.querySelector('.submit-button');
-    const originalContent = submitButton.innerHTML;
-    
-    // Show loading state
-    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-    submitButton.disabled = true;
-    
-    // Simulate form submission
-    try {
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-        
-        // Here you would typically send the data to a server
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        
-        // Show success message with animation
-        const successMessage = document.createElement('div');
-        successMessage.className = 'success-message';
-        successMessage.innerHTML = `
-            <i class="fas fa-check-circle"></i>
-            <span>پیام شما با موفقیت ارسال شد</span>
-        `;
-        
-        contactForm.appendChild(successMessage);
-        
-        // Animate success message
-        setTimeout(() => {
-            successMessage.style.opacity = '1';
-            successMessage.style.transform = 'translateY(0)';
-        }, 100);
-        
-        // Remove success message after 3 seconds
-        setTimeout(() => {
-            successMessage.style.opacity = '0';
-            successMessage.style.transform = 'translateY(-20px)';
-            setTimeout(() => successMessage.remove(), 300);
-        }, 3000);
-        
-        // Reset form with animation
-        contactForm.reset();
-        formInputs.forEach(input => {
-            input.parentElement.classList.remove('focused');
-        });
-        
-    } catch (error) {
-        console.error('Error:', error);
-    } finally {
-        // Restore button state
-        submitButton.innerHTML = originalContent;
-        submitButton.disabled = false;
-    }
-});
 
 // Enhanced scroll animations
 const animateOnScroll = () => {
@@ -295,12 +237,5 @@ formInputs.forEach(input => {
     });
 });
 
-// Initialize AOS with enhanced settings
-AOS.init({
-    duration: 1000,
-    once: true,
-    offset: 100,
-    easing: 'ease-out-cubic',
-    delay: 100,
-    anchorPlacement: 'top-bottom'
-}); 
+
+
